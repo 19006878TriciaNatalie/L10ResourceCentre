@@ -93,8 +93,23 @@ public class ResourceCentreTest {
 	
 	@Test
 	public void doLoanChromebookTest() {
+		
 		//fail("Not yet implemented");
 		// write your code here
+		
+		ResourceCentre.addChromebook(chromeBookList, cb1);
+		ResourceCentre.doLoanChromebook(chromebookList, tag, dueDate);
+				
+		// error condition
+		
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		
+		cb1.setIsAvailable(false);
+		
+		available_loan = ResourceCentre.doLoanChromebookTest(chromebookList, "CB0015", "23-7-2020");
+		
+		assertFalse("Test that non-existing item is not listed in the inventory", available_loan);
+		 		
 	}
 	
 	@Test
